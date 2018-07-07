@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/form.css">
+	<script src="javascript/form.js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js"></script>
+   </head>
+
+   <body>
+     <h2>Place your order</h2>
+     <div id="panel">
+      <form id="mainForm" method="POST">
+        <fieldset id="privateData" class="fieldSets">
+		<legend>Login:</legend>
+          <div class="data"> 
+            <label>Username*:</label><input type="text" name="username" class="required"/><br/>
+            <label>Password*:</label><input type="password" name="password" required="required" pattern="(?=.*[0-9])(?=.*[A-Z]).{5,}" title="Password must contain at least 5 characters and at least one digit and one uppercase letter"/>
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldSets" id="paymentMethod">
+          <legend>Payment:</legend>
+          <div class="data">
+            <label>Payment method:</label>
+            <select>
+              <option value="paymentOnPickUp">Payment on pick-up</option>
+              <option value="bankTransfer">Bank transfer/deposit</option>
+              <option value="creditCard">Credit/Debit Card</option>
+            </select>
+          </div>
+
+         <fieldset class="fieldSets" id="creditCardData">
+			<div class="data">
+              <label>Type of card:</label>
+                <select>
+                  <option value="visa">Visa</option>
+                  <option value="masterCard">Mastercard</option>
+                </select><br/>
+                <label>Card number*:</label> <input type="text" id="cardNumber"><br/>
+                <label>Expiration date:</label>
+                <input type="number" value="1" min="1" max="12"/>
+ 	        <input type="number"value="2016" min="2016" max="2030"/>
+             </div>
+          </fieldset>       
+        </fieldset>
+
+        <fieldset class="fieldSets">
+          <legend>Order Information:</legend>
+          <div class="data">
+            <label>Name*:</label><input type="text" id="clientName" autocomplete="off" class="required"/><br/>
+			<div id="suggestionBox"></div> 
+            <label>Address*:</label><input type="text" id="clientAddress" class="required"/><br/>
+			<div id="map"></div>
+			<label>Email:</label> <input type="text" name="email" placeholder="user@example.sth" pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+\.+[a-zA-Z0-9]{2,4}"/><br/>
+            <label>Telephone number:</label> <input type="text" pattern="[0-9]{10}"/><br/>
+			<label>Delivery comments:</label> <input type="text"/>
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldSets">
+          <legend>Coupon:</legend>
+          <div class="data">
+            <label>Coupon code:</label> <input type="text"/>
+          </div>
+        </fieldset>
+
+        <div id="agreeAndSubmit">
+          <input type="checkbox" name="checkTerms" required="required"/> I agree with the <a href="">terms</a>*<br/>
+          <input type="submit" name="submitOrder" value="Submit Order"/>
+		  <input type="button" id="resetOrder" value="Reset"></button>
+        </div>
+      </form>
+     </div>
+	 
+	
+
+   </body>
+</html>
